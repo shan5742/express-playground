@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
+const forecast = require("../utils/forecast");
 
 const app = express();
 // Define paths for Express
@@ -37,9 +38,28 @@ app.get("/help", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
+  if (!req.query.location) {
+    return res.send({
+      error: "You must provide a location",
+    });
+  }
+  forecast(req.query.location, (error, forecastData) => {
+    if (error) {
+      return res.send({ error });
+    }
+    res.send({ forecast: forecastData, location: req.query.location });
+  });
+});
+
+app.get("/products", (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: "You must provide a search term",
+    });
+  }
+  console.log(req.query.search);
   res.send({
-    temperature: 15,
-    feelslike: 14,
+    products: [],
   });
 });
 
