@@ -1,0 +1,13 @@
+h1 {
+  color: red;
+}
+
+img {
+  width: 250px;
+}
+
+.help__message {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
