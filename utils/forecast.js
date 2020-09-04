@@ -12,7 +12,6 @@ const forecast = (searchTerm, callback) => {
     } else if (res.body.error) {
       callback("Unable to find location", undefined);
     } else {
-      console.log(res.body);
       const {
         weather_descriptions: overview,
         temperature: temp,
