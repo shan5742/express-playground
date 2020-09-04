@@ -12,10 +12,15 @@ const forecast = (searchTerm, callback) => {
     } else if (res.body.error) {
       callback("Unable to find location", undefined);
     } else {
-      const { temperature: temp, feelslike: feelsLike } = res.body.current;
+      console.log(res.body);
+      const {
+        weather_descriptions: overview,
+        temperature: temp,
+        feelslike: feelsLike,
+      } = res.body.current;
       callback(
         undefined,
-        `It is currently ${temp} degrees, but it feels more like ${feelsLike}`
+        `${overview[0]}: It is currently ${temp} degrees, but it feels more like ${feelsLike}`
       );
     }
   });
