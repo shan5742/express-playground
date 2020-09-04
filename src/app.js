@@ -26,7 +26,6 @@ app.get("", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about", {
     heading: "About",
-    caption: "This is me",
   });
 });
 
