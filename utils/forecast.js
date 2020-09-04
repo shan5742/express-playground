@@ -17,10 +17,11 @@ const forecast = (searchTerm, callback) => {
         weather_descriptions: overview,
         temperature: temp,
         feelslike: feelsLike,
+        humidity,
       } = res.body.current;
       callback(
         undefined,
-        `${overview[0]}: It is currently ${temp} degrees, but it feels more like ${feelsLike}`
+        `${overview[0]}: It is currently ${temp} degrees, but it feels more like ${feelsLike}. The humidity is ${humidity}`
       );
     }
   });
