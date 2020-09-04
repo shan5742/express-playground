@@ -1,6 +1,7 @@
 # Nodejs Weather App
 
 Nodejs Weather App built with express.
+Use the application [here](https://shan-express-weather-app.herokuapp.com/)
 
 ### What does it do?
 
